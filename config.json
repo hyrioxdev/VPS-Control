@@ -1,0 +1,13 @@
+{
+  "discord": {
+    "clientId": "",
+    "clientSecret": "",
+    "redirectUri": "http://IP-URL:6100/auth/callback",
+    "botToken": "",
+    "guildId": "",
+    "requiredRoleIds": [""]
+  },
+  "allowedUserIds": [],
+  "sessionSecret": "CHANGE_ME_TO_A_RANDOM_STRING",
+  "port": 6000
+}

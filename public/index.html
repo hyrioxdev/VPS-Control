@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPS Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">VPS Manager</span>
+            <span class="logo-sub">Control Panel</span>
+          </div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li class="active" data-page="dashboard"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Dashboard</span></li>
+        <li data-page="vps"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg><span>VPS Manager</span></li>
+        <li data-page="pm2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>PM2 Processes</span></li>
+        <li data-page="nginx"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span>Nginx Config</span></li>
+        <li data-page="ssl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>SSL Certificates</span></li>
+        <li data-page="files"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg><span>File Browser</span></li>
+        <li data-page="logs"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>System Logs</span></li>
+        <li data-page="terminal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg><span>Terminal</span></li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="server-status"><div class="pulse"></div><span>System Online</span></div>
+      </div>
+    </nav>
+    <main class="content">
+      <div class="topbar">
+        <div class="topbar-left">
+          <h1 class="page-title" id="page-title">Dashboard</h1>
+          <p class="page-subtitle" id="page-subtitle">System overview and statistics</p>
+        </div>
+      </div>
+      <div class="page-wrapper">
+        <div id="page-dashboard" class="page active">
+          <div class="stats-grid" id="stats-grid"></div>
+          <div class="section mt-2">
+            <div class="section-header"><h2 class="section-title">PM2 Overview</h2><button onclick="navigateTo('pm2')" class="btn btn-ghost btn-sm">View All &rarr;</button></div>
+            <div id="pm2-quick" class="process-list"></div>
+          </div>
+          <div class="grid-2 mt-2">
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">System Info</h2></div>
+              <div id="sys-info"></div>
+            </div>
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Network</h2></div>
+              <div id="net-info"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="page-vps" class="page">
+          <div class="toolbar"><button onclick="vpsRefresh()" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Refresh</button></div>
+          <div class="grid-2">
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Systemd Services</h2></div>
+              <div id="vps-services"></div>
+            </div>
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Firewall (UFW)</h2>
+                <div style="display:flex;gap:6px">
+                  <button onclick="ufwAction('enable')" class="btn btn-sm btn-success">Enable</button>
+                  <button onclick="ufwAction('disable')" class="btn btn-sm btn-danger">Disable</button>
+                  <button onclick="ufwAction('reload')" class="btn btn-sm btn-secondary">Reload</button>
+                </div>
+              </div>
+              <pre id="vps-firewall" class="logs" style="max-height:300px"></pre>
+              <div style="margin-top:10px;display:flex;gap:6px">
+                <input id="ufw-rule" class="input" placeholder="allow 80/tcp" style="flex:1">
+                <button onclick="addUfwRule()" class="btn btn-sm btn-primary">Add Rule</button>
+              </div>
+            </div>
+          </div>
+          <div class="grid-2 mt-2">
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Listening Ports</h2></div>
+              <pre id="vps-ports" class="logs" style="max-height:300px"></pre>
+            </div>
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">System Users</h2>
+                <button onclick="showAddUserModal()" class="btn btn-sm btn-success">Add User</button>
+              </div>
+              <div id="vps-users"></div>
+            </div>
+          </div>
+          <div class="grid-2 mt-2">
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Crontab</h2></div>
+              <pre id="vps-crontab" class="logs" style="max-height:200px"></pre>
+              <div style="margin-top:10px;display:flex;gap:6px">
+                <input id="cron-rule" class="input" placeholder="*/5 * * * * /path/to/script.sh" style="flex:1">
+                <button onclick="addCron()" class="btn btn-sm btn-primary">Add</button>
+              </div>
+            </div>
+            <div class="section">
+              <div class="section-header"><h2 class="section-title">Network</h2></div>
+              <div id="vps-network"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="page-pm2" class="page">
+          <div class="toolbar">
+            <button onclick="pm2Refresh()" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Refresh</button>
+            <button onclick="pm2Save()" class="btn btn-secondary">Save</button>
+            <button onclick="pm2Startup()" class="btn btn-secondary">Enable Startup</button>
+          </div>
+          <div id="pm2-list" class="process-list"></div>
+          <div class="section mt-2">
+            <div class="section-header"><h2 class="section-title">Start New Process</h2></div>
+            <div class="form-grid">
+              <div class="form-group"><label>Name</label><input id="pm2-name" placeholder="my-app" class="input"></div>
+              <div class="form-group"><label>Script Path</label><input id="pm2-script" placeholder="/home/app/index.js" class="input"></div>
+              <div class="form-group"><label>Working Directory</label><input id="pm2-cwd" placeholder="/home/app" class="input"></div>
+              <div class="form-group"><label>Arguments</label><input id="pm2-args" placeholder="--env production" class="input"></div>
+            </div>
+            <button onclick="pm2StartNew()" class="btn btn-primary mt-1">Start Process</button>
+          </div>
+          <div class="section mt-2">
+            <div class="section-header"><h2 class="section-title">Process Logs</h2></div>
+            <div class="toolbar" style="margin-bottom:12px"><input id="pm2-log-name" placeholder="Process name" class="input"><button onclick="pm2LoadLogs()" class="btn btn-primary">Load Logs</button></div>
+            <pre id="pm2-logs" class="logs"></pre>
+          </div>
+        </div>
+
+        <div id="page-nginx" class="page">
+          <div class="toolbar">
+            <button onclick="nginxRefresh()" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Refresh</button>
+            <button onclick="nginxTest()" class="btn btn-secondary">Test Config</button>
+            <button onclick="nginxReload()" class="btn btn-warning">Reload Nginx</button>
+            <button onclick="showNginxCreateModal()" class="btn btn-success">New Config</button>
+          </div>
+          <div id="nginx-sites" class="grid-3"></div>
+          <div class="section mt-2" id="nginx-editor-card" style="display:none">
+            <div class="section-header"><h2 class="section-title">Editing: <span id="nginx-edit-name"></span></h2><button onclick="closeNginxEditor()" class="btn btn-ghost btn-sm">Close</button></div>
+            <textarea id="nginx-editor" class="code-editor" rows="22"></textarea>
+            <div class="mt-1"><button onclick="nginxSave()" class="btn btn-primary">Save Config</button></div>
+          </div>
+        </div>
+
+        <div id="page-ssl" class="page">
+          <div class="toolbar">
+            <button onclick="sslRefresh()" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Refresh</button>
+            <button onclick="showSSLRequestModal()" class="btn btn-success"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Request Certificate</button>
+            <button onclick="sslRenew()" class="btn btn-secondary">Renew All</button>
+          </div>
+          <div id="ssl-certs" class="grid-3"></div>
+        </div>
+
+        <div id="page-files" class="page">
+          <div class="toolbar">
+            <div class="input-with-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <input id="file-path" value="/home" class="input" style="flex:1" placeholder="/home">
+            </div>
+            <button onclick="fileBrowse()" class="btn btn-primary">Go</button>
+            <button onclick="showMkdirModal()" class="btn btn-secondary">New Folder</button>
+            <label class="btn btn-success" style="cursor:pointer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload
+              <input type="file" id="file-upload" style="display:none" onchange="fileUpload(this)">
+            </label>
+          </div>
+          <div id="file-list"></div>
+          <div class="section mt-2" id="file-editor-card" style="display:none">
+            <div class="section-header"><h2 class="section-title">Editing: <span id="file-edit-name"></span></h2><button onclick="closeFileEditor()" class="btn btn-ghost btn-sm">Close</button></div>
+            <textarea id="file-editor" class="code-editor" rows="22"></textarea>
+            <div class="mt-1"><button onclick="fileSave()" class="btn btn-primary">Save File</button></div>
+          </div>
+        </div>
+
+        <div id="page-logs" class="page">
+          <div class="toolbar">
+            <button onclick="logsRefresh()" class="btn btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Refresh</button>
+            <select id="log-lines" class="input" style="width:120px"><option value="50">50 lines</option><option value="100" selected>100 lines</option><option value="200">200 lines</option><option value="500">500 lines</option></select>
+          </div>
+          <pre id="logs-output" class="logs" style="height:70vh"></pre>
+        </div>
+
+        <div id="page-terminal" class="page">
+          <div class="section">
+            <div class="section-header"><h2 class="section-title">Command Output</h2><button onclick="$('#term-output').textContent=''" class="btn btn-ghost btn-sm">Clear</button></div>
+            <pre id="term-output" class="logs term"></pre>
+          </div>
+          <div class="terminal-input-wrapper mt-1">
+            <div class="terminal-prompt">$</div>
+            <input id="term-cmd" class="terminal-input" placeholder="Type a command..." onkeydown="if(event.key==='Enter')termExec()" autofocus>
+            <button onclick="termExec()" class="btn btn-primary btn-sm">Execute</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModal()"><div class="modal" onclick="event.stopPropagation()"><div id="modal-content"></div></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="/js/app.js"></script>
+</body>
+</html>
