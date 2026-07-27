@@ -43,7 +43,7 @@ A modern, lightweight, and powerful web-based control panel for managing your Vi
 
 ### Installation
 ```bash
-git clone https://github.com/USERNAME/vps-control.git
+git clone https://github.com/hyrioxdev/VPS-Control.git
 cd vps-control
 npm install
 npm start
